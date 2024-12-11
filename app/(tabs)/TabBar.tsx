@@ -15,19 +15,19 @@ export default function TabBar() {
     return (
         <View style={styles.TabBar}>
           <TouchableOpacity>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(16) }]}>HOME</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>HOME</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(16) }]}>EXPERIENCE</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>EXPERIENCE</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(16) }]}>PROJECTS</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>PROJECTS</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(16) }]}>EDUCATION</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>EDUCATION</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(16) }]}>SKILLS</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>SKILLS</Text>
           </TouchableOpacity>
         </View>
     );
@@ -36,7 +36,7 @@ export default function TabBar() {
 const styles = StyleSheet.create({
     TabBar: {
       position: 'absolute',
-      top: 30,
+      marginTop: 30,
       width: '100%',
       height: 60,
       flexDirection: 'row',
@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
     
     TabBarText: {
       color: '#000',
-      fontWeight: 'bold',
+      fontFamily: 'CooperHewittBold'
     },
 });

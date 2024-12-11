@@ -15,6 +15,8 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    DMSans: require('../assets/fonts/DMSans-Regular.ttf'),
+    CooperHewittBold: require('../assets/fonts/CooperHewitt-Bold.otf')
   });
 
   useEffect(() => {

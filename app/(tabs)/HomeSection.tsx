@@ -1,37 +1,39 @@
 import React from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Image, Text, Dimensions, StyleSheet } from 'react-native';
 
 export default function HomeSection() {
+    const { width } = Dimensions.get('window');
+  
+    const getFontSize = (baseSize : number) : number => {
+      if (width < 1000) {
+        // Computer screen, smaller font
+        return baseSize * 0.7;
+      } else {
+        // Phone screen, larger font
+        return baseSize;
+      }
+    };
+
+    const getScaledSize = (baseSize : number) => { 
+        return width < 1000 ? baseSize * 0.7 : baseSize;
+    };
+
+   
     return (
         <View style={styles.HomeSection}>
-            {/* Right Gradient */}
-            <Image
-                source={require('@/assets/images/GradientRight.png')}
-                style={styles.RightGradient} 
-            />
-        
-            {/* Left Gradient */}
-            <Image
-                source={require('@/assets/images/GradientLeft.png')}
-                style={styles.LeftGradient} 
-            />
             {/* Intro Content */}
             <View style={styles.IntroContainer}>
                 <Image
                     source={require('@/assets/images/IntroPic.png')}
-                    style={styles.IntroPic}
+                    style={[styles.IntroPic, { width: getScaledSize(500), height: getScaledSize(620) }]}
                 />
                 <View style= {styles.IntroContent}>
                     <Image
-                        source={require('@/assets/images/Title.png')}
-                        style={styles.IntroTitle}
+                        source={require('@/assets/images/HomeTitle.png')}
+                        style={[ { width: getScaledSize(700), height: getScaledSize(265) } ]}
                     />
-                    <View style= {styles.IntroText}>
-                        <Text style = {styles.Subtitle}>I'm a Year 2 Business Analytics undergraduate at the National University</Text>
-                        <Text style = {styles.Subtitle}>of Singapore. I'm a passionate learner with a strong interest in user</Text>
-                        <Text style = {styles.Subtitle}>interface design and app development. I'm always eager to explore new</Text>
-                        <Text style = {styles.Subtitle}>technologies, collaborate with others and contribute to impactful</Text>
-                        <Text style = {styles.Subtitle}>projects that enhance user experiences.</Text>
+                    <View style={styles.IntroText}> 
+                        <Text style = {[styles.Subtitle, {fontSize: getFontSize(25)}]}>I'm a Year 2 Business Analytics undergraduate at the National University of Singapore. I'm a passionate learner with a strong interest in user interface design and app development. I'm always eager to explore new technologies, collaborate with others and contribute to impactful projects that enhance user experiences.</Text>
                     </View>
                 </View>
             </View>
@@ -40,60 +42,45 @@ export default function HomeSection() {
 }
 const styles = StyleSheet.create({
     HomeSection: {
-        position: 'absolute',
+        position: 'relative',
+        flex: 1,
         resizeMode: 'cover',
-        width: '100%',
-        height: '100%',
-        marginTop: 150,
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         alignItems: 'center',
     },
 
-    RightGradient: {
-        right: -1250,
-        bottom: -50,
-        height: 900,
-        width: 900,
-    },
-  
-    LeftGradient: {
-      position: 'absolute',
-      bottom: -450,
-      left: -550,
-      height: 1500,
-      width: 1500,
-    },
-
     IntroContainer: {
+      flexDirection: 'row',
+      flex: 1,
+      width: '100%',
       alignItems: 'center',
       justifyContent: 'center',
-      flexDirection: 'row',
-      position: 'absolute',
-      //marginLeft: 90,
-      flex: 1,
+      marginLeft: 280,
+      
     },
 
     IntroContent: {
+        flex: 1,
         alignItems: 'flex-start',
-        marginLeft: 30,
+        marginLeft: 80,
+
     },
 
     IntroPic: {
-      height: 1000,
-      width: 1000,
+        borderRadius: 120,
+
     },
   
-    IntroTitle: {
-      width: 503,
-      height: 208,  
-    },
 
     IntroText: {
-      justifyContent: 'center',
-      alignItems: 'center',
+        marginTop: 15,
+        marginLeft: 15,
+        width: '67%',
     },
-  
+
     Subtitle: {
-      
-    },
+        fontFamily: 'DMSans',
+        textAlign: 'center',
+    }
+  
   });
