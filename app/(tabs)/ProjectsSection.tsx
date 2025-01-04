@@ -17,7 +17,7 @@ export default function ProjectsSection() {
 
     const Skill = ({ children }: SkillProps) => (
         <View style={styles.Skill}>
-            <Text style={[styles.SkillText, { fontSize: getFontSize(18) }]}>{children}</Text>
+            <Text style={[styles.SkillText, { fontSize: getFontSize(24) }]}>{children}</Text>
         </View>
     );
 
@@ -33,7 +33,7 @@ export default function ProjectsSection() {
             />
             <View style={styles.ProjectsContainer}>
                 {/* Project 1: Cookbook Diaries */}
-                <View style={[styles.Project, { width: getScaledSize(350), height: getScaledSize(650) }]}>
+                <View style={[styles.Project, { width: getScaledSize(450), height: getScaledSize(850) }]}>
                     {/* Project Image */ }
                     <Image
                         source={require('@/assets/images/Project1Pic.png')}
@@ -41,14 +41,14 @@ export default function ProjectsSection() {
                     />
 
                     {/* Project Name */}
-                    <Text style={[styles.ProjectName, { fontSize: getFontSize(22) }]}>Cookbook Diaries</Text>
+                    <Text style={[styles.ProjectName, { fontSize: getFontSize(30) }]}>Cookbook Diaries</Text>
 
                     {/* Short Description */}
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(18), marginBottom: 5 }]}>School Orbital project hosted on Expo with an achievement of Apollo 11</Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>School Orbital project hosted on Expo with an achievement of Apollo 11</Text>
 
                     {/* Skills */}
                     <View style={styles.SkillsContainer}>
-                        <Text style={[styles.Subtitle, { fontSize: getFontSize(18) }]}>Skills: </Text>
+                        <Text style={[styles.Subtitle, { fontSize: getFontSize(24) }]}>Skills: </Text>
                         <Skill>React.js</Skill>
                         <Skill>React Native</Skill>
                         <Skill>Firebase</Skill>
@@ -68,18 +68,18 @@ export default function ProjectsSection() {
                     {/* Buttons */}
                     {/* Video Demonstration Button */}
                     <TouchableOpacity style={styles.Button} onPress={() => {handlePress('https://drive.google.com/file/d/1IStatmHLwEDau5v_wQWJ3IoCoRaNGALZ/view?usp=drive_link')}}>
-                        <Text style={[styles.ButtonText, {fontSize: getFontSize(18)}]}>VIDEO DEMONSTRATION</Text>
+                        <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>VIDEO DEMONSTRATION</Text>
                     </TouchableOpacity>
 
                     {/* Github Repo Button */}
                     <TouchableOpacity style={styles.Button} onPress={() => {handlePress('https://github.com/clarequek/Cookbook-Diaries')}}>
-                        <Text style={[styles.ButtonText, {fontSize: getFontSize(18)}]}>GITHUB REPOSITORY</Text>
+                        <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>GITHUB REPOSITORY</Text>
                     </TouchableOpacity>   
 
                 </View>
 
                 {/* Project 2: Personal Website */}
-                <View style={[styles.Project, { width: getScaledSize(350), height: getScaledSize(650) }]}>
+                <View style={[styles.Project, { width: getScaledSize(450), height: getScaledSize(850) }]}>
                     {/* Project Image */ }
                     <Image
                         source={require('@/assets/images/PersonalWebsitePicture.png')}
@@ -87,14 +87,14 @@ export default function ProjectsSection() {
                     />
 
                     {/* Project Name */}
-                    <Text style={[styles.ProjectName, { fontSize: getFontSize(22) }]}>Personal Website</Text>
+                    <Text style={[styles.ProjectName, { fontSize: getFontSize(30) }]}>Personal Website</Text>
 
                     {/* Short Description */}
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(18), marginBottom: 5 }]}> Personal website hosted on Expo</Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}> Personal website hosted on Expo</Text>
 
                     {/* Skills */}
                     <View style={styles.SkillsContainer}>
-                        <Text style={[styles.Subtitle, { fontSize: getFontSize(18) }]}>Skills: </Text>
+                        <Text style={[styles.Subtitle, { fontSize: getFontSize(24) }]}>Skills: </Text>
                         <Skill>React.js</Skill>
                         <Skill>React Native</Skill>
                         <Skill>Git</Skill>
@@ -103,12 +103,12 @@ export default function ProjectsSection() {
                     {/* Buttons */}
                     {/* Video Demonstration Button */}
                     <TouchableOpacity style={styles.Button} onPress={() => {handlePress('https://drive.google.com/file/d/1IStatmHLwEDau5v_wQWJ3IoCoRaNGALZ/view?usp=drive_link')}}>
-                        <Text style={[styles.ButtonText, {fontSize: getFontSize(18)}]}>VIDEO DEMONSTRATION</Text>
+                        <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>VIDEO DEMONSTRATION</Text>
                     </TouchableOpacity>
                     
                     {/* Github Repo Button */}
                     <TouchableOpacity style={styles.Button} onPress={() => {handlePress('https://github.com/clarequek/Cookbook-Diaries')}}>
-                        <Text style={[styles.ButtonText, {fontSize: getFontSize(18)}]}>GITHUB REPOSITORY</Text>
+                        <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>GITHUB REPOSITORY</Text>
                     </TouchableOpacity>   
                 </View>
             </View>
@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
 
     ProjectsContainer: {
         flexDirection: 'row',
+        alignItems: 'center',
     },
 
     Project: {

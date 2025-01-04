@@ -2,8 +2,10 @@ import React, { useRef, useState } from 'react';
 import { View, Image, StyleSheet, ScrollView } from 'react-native';
 import TabBar from '../(tabs)/TabBar';
 import HomeSection from '../(tabs)/HomeSection';
+import ExperienceSection from '../(tabs)/ExperienceSection';
 import ProjectsSection from '../(tabs)/ProjectsSection';
 import EducationSection from '../(tabs)/EducationSection';
+import SkillsSection from '../(tabs)/SkillsSection';
 
 export default function MainScreen() {
   
@@ -35,6 +37,11 @@ export default function MainScreen() {
             <HomeSection />
           </View>
 
+          {/* Experience Section */}
+          <View style = {styles.Section}>
+            <ExperienceSection />
+          </View>
+
           {/* Projects Section */}
           <View style = {styles.Section}>
             <ProjectsSection />
@@ -43,6 +50,11 @@ export default function MainScreen() {
           {/* Education Section */}
           <View style = {styles.Section}>
             <EducationSection />
+          </View>
+
+          {/* Skills Section */}
+          <View style = {styles.Section}>
+            <SkillsSection />
           </View>
 
         </ScrollView>
