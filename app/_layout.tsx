@@ -16,6 +16,8 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     DMSans: require('../assets/fonts/DMSans-Regular.ttf'),
+    DMSansLight: require('../assets/fonts/DMSans-Light.ttf'),
+    DMSansItalic: require('../assets/fonts/DMSans-Italic.ttf'),
     CooperHewittBold: require('../assets/fonts/CooperHewitt-Bold.otf')
   });
 
