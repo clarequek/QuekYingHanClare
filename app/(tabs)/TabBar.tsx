@@ -1,5 +1,8 @@
+import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity, Dimensions } from 'react-native';
-export default function TabBar() {
+
+
+const TabBar= ({ handleScrollTo }) => {
     const { width } = Dimensions.get('window');
   
     const getFontSize = (baseSize : number) : number => {
@@ -14,19 +17,19 @@ export default function TabBar() {
     
     return (
         <View style={styles.TabBar}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => handleScrollTo('home')}>
             <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>HOME</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => handleScrollTo('experience')}>
             <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>EXPERIENCE</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => handleScrollTo('projects')}>
             <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>PROJECTS</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => handleScrollTo('education')}>
             <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>EDUCATION</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => handleScrollTo('skills')}>
             <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>SKILLS</Text>
           </TouchableOpacity>
         </View>
@@ -36,13 +39,13 @@ export default function TabBar() {
 const styles = StyleSheet.create({
     TabBar: {
       position: 'absolute',
-      marginTop: 30,
       width: '100%',
       height: 60,
       flexDirection: 'row',
       justifyContent: 'space-around',
       alignItems: 'center',
-      zIndex: 10, // Ensure it stays above the content What's this actually
+      zIndex: 10, 
+      backgroundColor: 'rgba(255, 255, 255, 0.5)',
     },
     
     TabBarText: {
@@ -50,3 +53,5 @@ const styles = StyleSheet.create({
       fontFamily: 'CooperHewittBold'
     },
 });
+
+export default TabBar;

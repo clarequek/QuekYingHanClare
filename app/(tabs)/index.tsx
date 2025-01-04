@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import TabBar from '../(tabs)/TabBar';
 import HomeSection from '../(tabs)/HomeSection';
 import ExperienceSection from '../(tabs)/ExperienceSection';
@@ -8,71 +8,68 @@ import EducationSection from '../(tabs)/EducationSection';
 import SkillsSection from '../(tabs)/SkillsSection';
 
 export default function MainScreen() {
-  
+  const scrollViewRef = useRef(null);
+  const [sectionPositions, setSectionPositions] = useState({});
+
+  const onSectionLayout = (sectionName) => (event) => {
+    const { y } = event.nativeEvent.layout;
+    setSectionPositions((prevPositions) => ({
+      ...prevPositions,
+      [sectionName]: y,
+    }));
+  };
+
+  const handleScrollTo = (sectionName) => {
+    const yOffset = sectionPositions[sectionName] || 0;
+    scrollViewRef.current?.scrollTo({ y: yOffset, animated: true });
+  };
+
   return (
-      <View style={styles.Container}>
-        {/* Fixed Tab Bar */}
-        <TabBar />
+    <View style={styles.container}>
+      {/* Fixed Tab Bar */}
+      <TabBar handleScrollTo={handleScrollTo} />
 
-        {/* Background of website */}
-        <Image
-          source={require('@/assets/images/IntroBackground.png')}
-          style={styles.Background} 
-        />
-        <ScrollView contentContainerStyle={styles.ScrollViewContainer} >
-          {/* Right Gradient */}
-          <Image
-            source={require('@/assets/images/GradientRight.png')}
-            style={styles.RightGradient} 
-          />
-          
-          {/* Left Gradient */}
-          <Image
-            source={require('@/assets/images/GradientLeft.png')}
-            style={styles.LeftGradient} 
-          />
+      {/* Background Image */}
+      <Image
+        source={require('@/assets/images/IntroBackground.png')}
+        style={styles.background}
+      />
 
-          {/* Home Section */}
-          <View style = {[styles.Section, {marginTop: 150}]}>
+      {/* Scrollable Content */}
+      <ScrollView
+        ref={scrollViewRef}
+        contentContainerStyle={styles.scrollViewContainer}
+        scrollEventThrottle={16}
+      >
+        {/* Adding top margin to offset the fixed TabBar */}
+        <View style={{ marginTop: 60 }}>
+          <View onLayout={onSectionLayout('home')}>
             <HomeSection />
           </View>
-
-          {/* Experience Section */}
-          <View style = {styles.Section}>
+          <View onLayout={onSectionLayout('experience')}>
             <ExperienceSection />
           </View>
-
-          {/* Projects Section */}
-          <View style = {styles.Section}>
+          <View onLayout={onSectionLayout('projects')}>
             <ProjectsSection />
           </View>
-
-          {/* Education Section */}
-          <View style = {styles.Section}>
+          <View onLayout={onSectionLayout('education')}>
             <EducationSection />
           </View>
-
-          {/* Skills Section */}
-          <View style = {styles.Section}>
+          <View onLayout={onSectionLayout('skills')}>
             <SkillsSection />
           </View>
-
-        </ScrollView>
-     
-       
-      </View>
-    
-
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  Container: {
+  container: {
     flex: 1,
   },
-
-
-  Background: {
+  
+  background: {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -81,32 +78,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
 
-  ScrollViewContainer: {
+  scrollViewContainer: {
     flexGrow: 1,
-    padding: 20,
   },
-
-  RightGradient: {
-    position: 'absolute', 
-    top: -550,
-    right: -250, 
-    width: '50%', 
-    height: '100%',
-    resizeMode: 'contain',
-  },
-
-  LeftGradient: {
-    position: 'absolute', 
-    top: -950,
-    left: -550, 
-    width: '80%', // Adjust the width as needed 
-    height: '130%', 
-    resizeMode: 'contain',
-  },
-
-  Section: {
-    marginBottom: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
 });
