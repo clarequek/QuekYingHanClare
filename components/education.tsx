@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Image, Text, Dimensions, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, Text, Dimensions, StyleSheet, Animated} from 'react-native';
 
 interface EducationProps { education: { 
     id: number; 
@@ -21,41 +21,46 @@ const Education : React.FC<EducationProps> = ({ education }) => {
         return width < 1000 ? baseSize * 0.7 : baseSize;
     };
 
+    const [isHovered, setIsHovered] = useState(false);
+    const scaleValue = isHovered ? 1.08 : 1;
+
     return (  
-        <View style={[styles.Education, 
-        //{ width: getScaledSize(1200), height: getScaledSize(700) }
-        ]}>
-            {/* Degree */}
-            <Text style={[styles.Header, { fontSize: getFontSize(30) }]}>{ education.degree }</Text>
+        <Animated.View
+                style={[
+                    styles.Education,
+                    {
+                        transform: [{ scale: scaleValue }],
+                    },
+                    {width: '90%'}
+                ]}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+        >
+            <View>
+                {/* Degree */}
+                <Text style={[styles.Header, { fontSize: getFontSize(30) }]}>{ education.degree }</Text>
 
-            {/* Institute */}
-            <Text style={[styles.Subtitle, { fontSize: getFontSize(28), marginBottom: 5 }]}>{ education.institute }</Text>
+                {/* Institute */}
+                <Text style={[styles.Subtitle, { fontSize: getFontSize(28), marginBottom: 5 }]}>{ education.institute }</Text>
 
-            {/* Period */}
-            <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{ education.period }</Text>
+                {/* Period */}
+                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{ education.period }</Text>
 
-            <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}> </Text>
-                    
-            {/* Activities */}
-            <Text style={[styles.Header, { fontSize: getFontSize(24), marginBottom: 5 }]}> Activities and Societies: </Text>
-            {education.activities.map(activity => ( <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansLight' }]}>• { activity }</Text> ))}
-        </View>            
+                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}> </Text>
+                        
+                {/* Activities */}
+                <Text style={[styles.Header, { fontSize: getFontSize(24), marginBottom: 5 }]}> Activities and Societies: </Text>
+                {education.activities.map(activity => ( <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansLight' }]}>• { activity }</Text> ))}
+            </View>   
+        </Animated.View>         
     );
 }
 
 
 const styles = StyleSheet.create({
-    EducationSection: {
-        position: 'relative',
-        resizeMode: 'cover',
-        width: '100%',
-        height: '100%',
-        justifyContent: 'space-around',
-        marginLeft: 100,
-    },
-
     Header: {
         fontFamily: 'CooperHewittBold',
+        textAlign: 'center',
     },
 
     Subtitle: {
@@ -68,10 +73,16 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginRight: 20,
-        marginBottom: 20,
-        paddingHorizontal: 50,
-        paddingVertical: 50,
+        marginLeft: '2.5%',
+        marginRight: '2.5%',
+        marginBottom: '2.5%',
+        paddingVertical: '2.5%',
+        paddingHorizontal: '2.5%',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
+        elevation: 5, // For Android shadow
     },
 
     SkillsContainer: {

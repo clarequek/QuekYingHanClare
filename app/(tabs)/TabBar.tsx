@@ -1,5 +1,6 @@
-import React from 'react'
-import { View, StyleSheet, Text, TouchableOpacity, Dimensions } from 'react-native';
+import React, { useState } from 'react'
+import { View, StyleSheet, Text, TouchableOpacity, Dimensions, Modal } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 const TabBar= ({ handleScrollTo }) => {
@@ -38,7 +39,6 @@ const TabBar= ({ handleScrollTo }) => {
 
 const styles = StyleSheet.create({
     TabBar: {
-      position: 'absolute',
       width: '100%',
       height: 60,
       flexDirection: 'row',

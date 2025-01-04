@@ -15,7 +15,7 @@ const projectsData = [
         "image": require('@/assets/images/PersonalWebsite.png'),
         "skills": ["React.js", "React Native", "Git"],
         "videoDemoUrl": "https://drive.google.com/file/d/1IStatmHLwEDau5v_wQWJ3IoCoRaNGALZ/view?usp=drive_link",
-        "githubRepoUrl": "https://github.com/clarequek/Cookbook-Diaries"
+        "githubRepoUrl": "https://github.com/clarequek/QuekYingHanClare"
     },
 ]
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Image, Text, Dimensions, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, Text, Dimensions, StyleSheet, Animated} from 'react-native';
 import Skill from './skill';
 
 interface ExperienceProps { experience: { 
@@ -22,9 +22,22 @@ const Experience : React.FC<ExperienceProps> = ({ experience }) => {
         return width < 1000 ? baseSize * 0.7 : baseSize;
     };
 
+    const [isHovered, setIsHovered] = useState(false);
+    const scaleValue = isHovered ? 1.08 : 1;
+
     return (
-        
-            <View style={[styles.Job, { width: getScaledSize(1200), height: getScaledSize(400) }]}>
+        <Animated.View
+                style={[
+                    styles.Job,
+                    {  
+                        transform: [{ scale: scaleValue }],
+                    },
+                    { width: '90%'}
+                ]}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+        >
+            <View>
                 {/* Job Title */}
                 <Text style={[styles.JobName, { fontSize: getFontSize(30) }]}>{experience.jobTitle}</Text>
 
@@ -43,10 +56,11 @@ const Experience : React.FC<ExperienceProps> = ({ experience }) => {
 
                 {/* Skills */}
                 <View style={styles.SkillsContainer}>
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>Skills: </Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>Skills: </Text>
                     {experience.skills.map(skill => ( <Skill key={skill}>{skill}</Skill> ))}
                 </View>
             </View>
+        </Animated.View>
     );
 }
 
@@ -54,6 +68,7 @@ const styles = StyleSheet.create({
 
     JobName: {
         fontFamily: 'CooperHewittBold',
+        textAlign: 'center',
     },
 
     Subtitle: {
@@ -66,7 +81,16 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginRight: 20,
+        marginLeft: '2.5%',
+        marginRight: '2.5%',
+        marginBottom: '2.5%',
+        paddingVertical: '2.5%',
+        paddingHorizontal: '2.5%',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
+        elevation: 5, // For Android shadow
     },
 
     SkillsContainer: {

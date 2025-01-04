@@ -10,13 +10,21 @@ export default function EducationSection() {
         return width < 1000 ? baseSize * 0.7 : baseSize;
     };
 
+    const getFontSize = (baseSize : number) : number => {
+        if (width < 1000) {
+          // Computer screen, smaller font
+          return baseSize * 0.7;
+        } else {
+          // Phone screen, larger font
+          return baseSize;
+        }
+      };
+
     return (
         <View style={styles.EducationSection}>
           {/* Header */}
-          <Image
-            source={require('@/assets/images/EducationTitle.png')}
-            style={[{ width: getScaledSize(700), height: getScaledSize(265) }]}
-          />
+          {/* Header */}
+          <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Education</Text>
 
           {/* Education */}
           <View style={styles.EducationContainer}>
@@ -35,10 +43,19 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         justifyContent: 'space-around',
-        marginLeft: 100,
+        paddingHorizontal: '5%',
+        flexWrap: 'wrap',
     },
 
     EducationContainer: {
       alignItems: 'center',
+    },
+
+    Header: {
+        fontFamily: 'DMSansBlack',
+        color: '#000',
+        textShadowColor: 'rgba(0, 0, 0, 0.1)',
+        textShadowOffset: { width: 0.5, height: 0.5 }, 
+        textShadowRadius: 10,
     },
 });

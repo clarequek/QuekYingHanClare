@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { View, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, Image, StyleSheet, ScrollView, Platform } from 'react-native';
 import TabBar from '../(tabs)/TabBar';
+import LedgerButton from '../(tabs)/LedgerButton';
 import HomeSection from '../(tabs)/HomeSection';
 import ExperienceSection from '../(tabs)/ExperienceSection';
 import ProjectsSection from '../(tabs)/ProjectsSection';
@@ -21,17 +22,17 @@ export default function MainScreen() {
 
   const handleScrollTo = (sectionName) => {
     const yOffset = sectionPositions[sectionName] || 0;
-    if (yOffset == 0) {
-      scrollViewRef.current?.scrollTo({ y: yOffset, animated: true });
-    } else {
-      scrollViewRef.current?.scrollTo({ y: yOffset + 250, animated: true });
-    }
+    scrollViewRef.current?.scrollTo({ y: yOffset, animated: true });
   };
 
   return (
     <View style={styles.container}>
-      {/* Fixed Tab Bar */}
+      {/* Conditional rendering based on platform */} 
+      {Platform.OS === 'ios' || Platform.OS === 'android' ? ( 
+        <LedgerButton handleScrollTo={handleScrollTo} /> 
+      ) : ( 
       <TabBar handleScrollTo={handleScrollTo} />
+      )}
 
       {/* Background Image */}
       <Image
@@ -45,7 +46,6 @@ export default function MainScreen() {
         contentContainerStyle={styles.scrollViewContainer}
         scrollEventThrottle={16}
       >
-        {/* Adding top margin to offset the fixed TabBar */}
         <View>
           <View style={styles.Section} onLayout={onSectionLayout('home')}>
             <HomeSection />
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
 
   Section: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    //justifyContent: 'center',
+    //alignItems: 'center',
   },
 });

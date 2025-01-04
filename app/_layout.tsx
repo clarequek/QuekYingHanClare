@@ -18,7 +18,11 @@ export default function RootLayout() {
     DMSans: require('../assets/fonts/DMSans-Regular.ttf'),
     DMSansLight: require('../assets/fonts/DMSans-Light.ttf'),
     DMSansItalic: require('../assets/fonts/DMSans-Italic.ttf'),
-    CooperHewittBold: require('../assets/fonts/CooperHewitt-Bold.otf')
+    DMSansSemiBold: require('../assets/fonts/DMSans-SemiBold.ttf'),
+    DMSansBold: require('../assets/fonts/DMSans-Bold.ttf'),
+    DMSansBlack: require('../assets/fonts/DMSans-Black.ttf'),
+    CooperHewittBold: require('../assets/fonts/CooperHewitt-Bold.otf'),
+    ArchivoBlack: require('../assets/fonts/ArchivoBlack-Regular.ttf'),
   });
 
   useEffect(() => {

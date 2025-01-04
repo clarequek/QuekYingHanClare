@@ -10,13 +10,20 @@ export default function ProjectsSection() {
         return width < 1000 ? baseSize * 0.7 : baseSize;
     };
 
+    const getFontSize = (baseSize : number) : number => {
+        if (width < 1000) {
+          // Computer screen, smaller font
+          return baseSize * 0.7;
+        } else {
+          // Phone screen, larger font
+          return baseSize;
+        }
+      };
+
     return (
         <View style={styles.ProjectsSection}>
             {/* Header */}
-            <Image
-                source={require('@/assets/images/ProjectsTitle.png')}
-                style={[{ width: getScaledSize(700), height: getScaledSize(265) }]}
-            />
+            <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Projects</Text>
 
             {/* Projects */}
             <View style={styles.ProjectsContainer}>
@@ -35,7 +42,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         justifyContent: 'space-around',
-        marginLeft: 100,
+        paddingHorizontal: '5%'
     },
 
     ProjectsContainer: {
@@ -43,5 +50,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexWrap: 'wrap',
+    },
+
+    Header: {
+        fontFamily: 'DMSansBlack',
+        color: '#000',
+        textShadowColor: 'rgba(0, 0, 0, 0.1)',
+        textShadowOffset: { width: 0.5, height: 0.5 }, 
+        textShadowRadius: 10,
     },
 });

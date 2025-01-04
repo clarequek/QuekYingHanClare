@@ -18,10 +18,8 @@ export default function SkillsSection() {
     return (
         <View style={styles.SkillsSection}>
             {/* Header */}
-            <Image
-                source={require('@/assets/images/SkillsTitle.png')}
-                style={[{ width: getScaledSize(700), height: getScaledSize(265) }]}
-            />
+            {/* Header */}
+            <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Skills</Text>
 
             {/* Skills */}
             {skillsData.map((skill) => (
@@ -43,7 +41,8 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         justifyContent: 'space-around',
-        marginLeft: 100,
+        paddingHorizontal: '5%',
+        flexWrap: 'wrap',
     },
 
     Subtitle: {
@@ -53,8 +52,17 @@ const styles = StyleSheet.create({
 
     SkillsContainer: {
         flexDirection: 'row',
+        flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginBottom: 9,
+    },
+
+    Header: {
+        fontFamily: 'DMSansBlack',
+        color: '#000',
+        textShadowColor: 'rgba(0, 0, 0, 0.1)',
+        textShadowOffset: { width: 0.5, height: 0.5 }, 
+        textShadowRadius: 10,
     },
 });

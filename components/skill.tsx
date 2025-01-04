@@ -20,17 +20,20 @@ const Skill = ({ children } : SkillProps) => {
 
 const styles = StyleSheet.create({
 Skill: {
-    backgroundColor: '#ffe0e9',
+    backgroundColor: 'rgba(255,192,203,0.5)',
     borderRadius: 20,
     marginRight: 5,
     marginBottom: 5,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 5,
+    flexWrap: 'wrap',
   },
 
   SkillText: {
     fontFamily: 'DMSans',
+    flexWrap: 'wrap',
+    textAlign: 'center',
   },
 });
 
