@@ -22,7 +22,9 @@ const Education : React.FC<EducationProps> = ({ education }) => {
     };
 
     return (  
-        <View style={[styles.Education, { width: getScaledSize(1200), height: getScaledSize(700) }]}>
+        <View style={[styles.Education, 
+        //{ width: getScaledSize(1200), height: getScaledSize(700) }
+        ]}>
             {/* Degree */}
             <Text style={[styles.Header, { fontSize: getFontSize(30) }]}>{ education.degree }</Text>
 
@@ -68,6 +70,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginRight: 20,
         marginBottom: 20,
+        paddingHorizontal: 50,
+        paddingVertical: 50,
     },
 
     SkillsContainer: {

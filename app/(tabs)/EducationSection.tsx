@@ -38,45 +38,7 @@ const styles = StyleSheet.create({
         marginLeft: 100,
     },
 
-    Header: {
-        fontFamily: 'CooperHewittBold',
-    },
-
-    Subtitle: {
-        fontFamily: 'DMSans',
-        textAlign: 'center',
-    },
-
     EducationContainer: {
       alignItems: 'center',
-    },
-
-    Education: {
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
-        borderRadius: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginRight: 20,
-        marginBottom: 20,
-    },
-
-    SkillsContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 9,
-    },
-
-    Skill: {
-        backgroundColor: '#ffe0e9',
-        borderRadius: 5,
-        height: 18,
-        marginRight: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-    SkillText: {
-        fontFamily: 'DMSans',
     },
 });

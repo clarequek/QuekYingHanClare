@@ -42,6 +42,8 @@ export default function HomeSection() {
 }
 const styles = StyleSheet.create({
     HomeSection: {
+        marginTop: 150,
+        marginBottom: 100,
         position: 'relative',
         flex: 1,
         resizeMode: 'cover',
@@ -71,7 +73,6 @@ const styles = StyleSheet.create({
 
     },
   
-
     IntroText: {
         marginTop: 15,
         marginLeft: 15,

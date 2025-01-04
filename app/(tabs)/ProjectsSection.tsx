@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     ProjectsContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
         flexWrap: 'wrap',
     },
 });

@@ -21,7 +21,11 @@ export default function MainScreen() {
 
   const handleScrollTo = (sectionName) => {
     const yOffset = sectionPositions[sectionName] || 0;
-    scrollViewRef.current?.scrollTo({ y: yOffset, animated: true });
+    if (yOffset == 0) {
+      scrollViewRef.current?.scrollTo({ y: yOffset, animated: true });
+    } else {
+      scrollViewRef.current?.scrollTo({ y: yOffset + 250, animated: true });
+    }
   };
 
   return (
@@ -42,20 +46,20 @@ export default function MainScreen() {
         scrollEventThrottle={16}
       >
         {/* Adding top margin to offset the fixed TabBar */}
-        <View style={{ marginTop: 60 }}>
-          <View onLayout={onSectionLayout('home')}>
+        <View>
+          <View style={styles.Section} onLayout={onSectionLayout('home')}>
             <HomeSection />
           </View>
-          <View onLayout={onSectionLayout('experience')}>
+          <View style = {styles.Section} onLayout={onSectionLayout('experience')}>
             <ExperienceSection />
           </View>
-          <View onLayout={onSectionLayout('projects')}>
+          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('projects')}>
             <ProjectsSection />
           </View>
-          <View onLayout={onSectionLayout('education')}>
+          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('education')}>
             <EducationSection />
           </View>
-          <View onLayout={onSectionLayout('skills')}>
+          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('skills')}>
             <SkillsSection />
           </View>
         </View>
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  
+
   background: {
     position: 'absolute',
     top: 0,
@@ -80,5 +84,10 @@ const styles = StyleSheet.create({
 
   scrollViewContainer: {
     flexGrow: 1,
+  },
+
+  Section: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
