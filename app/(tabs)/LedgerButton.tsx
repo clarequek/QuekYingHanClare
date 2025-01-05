@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     
     ModalContent: { 
       width: '100%', 
-      backgroundColor: 'white', 
+      backgroundColor: 'rgba(255, 255, 255, 0.8)', 
       borderRadius: 10, 
       padding: 20, 
       alignItems: 'center', 

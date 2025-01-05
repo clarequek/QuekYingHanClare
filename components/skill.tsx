@@ -34,6 +34,7 @@ Skill: {
     fontFamily: 'DMSans',
     flexWrap: 'wrap',
     textAlign: 'center',
+    alignSelf: 'center',
   },
 });
 

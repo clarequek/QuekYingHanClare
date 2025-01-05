@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, Image, StyleSheet, ScrollView, Platform } from 'react-native';
+import { View, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import TabBar from '../(tabs)/TabBar';
 import LedgerButton from '../(tabs)/LedgerButton';
 import HomeSection from '../(tabs)/HomeSection';
@@ -9,6 +9,8 @@ import EducationSection from '../(tabs)/EducationSection';
 import SkillsSection from '../(tabs)/SkillsSection';
 
 export default function MainScreen() {
+  const { width } = Dimensions.get('window');
+
   const scrollViewRef = useRef(null);
   const [sectionPositions, setSectionPositions] = useState({});
 
@@ -27,8 +29,8 @@ export default function MainScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Conditional rendering based on platform */} 
-      {Platform.OS === 'ios' || Platform.OS === 'android' ? ( 
+      {/* Conditional rendering based on width */} 
+      {width < 1000 ? ( 
         <LedgerButton handleScrollTo={handleScrollTo} /> 
       ) : ( 
       <TabBar handleScrollTo={handleScrollTo} />
@@ -47,19 +49,19 @@ export default function MainScreen() {
         scrollEventThrottle={16}
       >
         <View>
-          <View style={styles.Section} onLayout={onSectionLayout('home')}>
+          <View style={styles.Section} onLayout={onSectionLayout('home')} key="home">
             <HomeSection />
           </View>
-          <View style = {styles.Section} onLayout={onSectionLayout('experience')}>
+          <View style = {styles.Section} onLayout={onSectionLayout('experience')} key="experience">
             <ExperienceSection />
           </View>
-          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('projects')}>
+          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('projects')} key="projects">
             <ProjectsSection />
           </View>
-          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('education')}>
+          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('education')} key="education">
             <EducationSection />
           </View>
-          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('skills')}>
+          <View style={[styles.Section, {marginTop: 150}]} onLayout={onSectionLayout('skills')} key="skills">
             <SkillsSection />
           </View>
         </View>

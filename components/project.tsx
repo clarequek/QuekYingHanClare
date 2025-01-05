@@ -37,7 +37,7 @@ const Project : React.FC<ProjectProps> = ({ project }) => {
                 {                     
                     transform: [{ scale: scaleValue }],
                 },
-                { width: '45%', height: '100%'}
+                { width: getScaledSize(450), height: getScaledSize(1000)}
             ]}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

@@ -23,6 +23,11 @@ const skillsData = [
         "id": "Version Control & Collaboration",
         "skills": ["Git",]
     },
+
+    {
+        "id": "Others",
+        "skills": ["Canva",]
+    },
 ]
 
 export default skillsData;

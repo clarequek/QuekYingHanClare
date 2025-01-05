@@ -17,19 +17,20 @@ export default function SkillsSection() {
 
     return (
         <View style={styles.SkillsSection}>
-            {/* Header */}
-            {/* Header */}
-            <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Skills</Text>
-
-            {/* Skills */}
-            {skillsData.map((skill) => (
-                <View key={skill.id} style={styles.SkillsContainer}>
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(25) }]}>{skill.id}: </Text>
-                    {skill.skills.map((skillItem) => (
-                        <Skill key={skillItem}>{skillItem}</Skill>
-                    ))}
-                </View>
-            ))}      
+            
+            <View style={styles.Container}>
+                {/* Header */}
+                <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Skills</Text>
+                {/* Skills */}
+                {skillsData.map((skill) => (
+                    <View key={skill.id} style={styles.SkillsContainer}>
+                        <Text style={[styles.Subtitle, { fontSize: getFontSize(25) }]}>{skill.id}: </Text>
+                        {skill.skills.map((skillItem) => (
+                            <Skill key={skillItem}>{skillItem}</Skill>
+                        ))}
+                    </View>
+                ))}    
+            </View>  
         </View>
     );
 }
@@ -40,14 +41,24 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         width: '100%',
         height: '100%',
+        alignItems: 'flex-start',
         justifyContent: 'space-around',
         paddingHorizontal: '5%',
         flexWrap: 'wrap',
     },
 
+    Container: {
+        marginTop: 50,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        flexWrap: 'wrap',
+        flex: 1,
+    },
+
     Subtitle: {
         fontFamily: 'DMSans',
         textAlign: 'center',
+        marginBottom: 5,
     },
 
     SkillsContainer: {

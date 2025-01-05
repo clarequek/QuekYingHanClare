@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
 
     ExperienceContainer: {
-        alignSelf: "center"
+        alignItems: "center"
     },
 
     Header: {

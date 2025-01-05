@@ -50,7 +50,7 @@ const Education : React.FC<EducationProps> = ({ education }) => {
                         
                 {/* Activities */}
                 <Text style={[styles.Header, { fontSize: getFontSize(24), marginBottom: 5 }]}> Activities and Societies: </Text>
-                {education.activities.map(activity => ( <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansLight' }]}>• { activity }</Text> ))}
+                {education.activities.map((activity, index) => ( <Text key={index} style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansLight' }]}>• { activity }</Text> ))}
             </View>   
         </Animated.View>         
     );
