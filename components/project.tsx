@@ -37,7 +37,7 @@ const Project : React.FC<ProjectProps> = ({ project }) => {
                 {                     
                     transform: [{ scale: scaleValue }],
                 },
-                { width: getScaledSize(450), height: getScaledSize(1000)}
+                { width: getScaledSize(450), height: getScaledSize(850)}
             ]}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -47,8 +47,8 @@ const Project : React.FC<ProjectProps> = ({ project }) => {
             <Image
                 source={typeof project.image === 'string' ? { uri: project.image } : project.image}
                 style={[{ 
-                    width: getScaledSize(300), 
-                    height: getScaledSize(300), 
+                    width: getScaledSize(250), 
+                    height: getScaledSize(250), 
                 }]}
             />
 
@@ -57,7 +57,7 @@ const Project : React.FC<ProjectProps> = ({ project }) => {
 
             {/* Short Description */}
             <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>{project.description}</Text>
-            <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}> </Text>
+            <Text style={[styles.Subtitle, { fontSize: getFontSize(2), marginBottom: 5 }]}> </Text>
 
             {/* Skills */}
             <View style={styles.SkillsContainer}>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     },
 
     Button: {
-        height: 55,
+        height: 45,
         marginTop: 10,
         width: '95%',
         backgroundColor: 'rgba(0, 0, 0, 0.2)',

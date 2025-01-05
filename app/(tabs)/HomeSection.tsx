@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: '5%',
-        paddingVertical: '5%',
+        paddingVertical: '0%',
     },
 
     IntroContainer: {

@@ -13,8 +13,8 @@ const projectsData = [
         "name": "Personal Website",
         "description": "Personal website hosted on Expo where I learned to create APIs",
         "image": require('@/assets/images/PersonalWebsite.png'),
-        "skills": ["React.js", "React Native", "Git"],
-        "videoDemoUrl": "https://drive.google.com/file/d/1IStatmHLwEDau5v_wQWJ3IoCoRaNGALZ/view?usp=drive_link",
+        "skills": ["React.js", "React Native", "Git", "Netlify", "Creation of APIs"],
+        "videoDemoUrl": "https://drive.google.com/file/d/1ZeX7RMUFe_Oy-PVoR1g0lt3HfWeEU8wM/view?usp=sharing",
         "githubRepoUrl": "https://github.com/clarequek/QuekYingHanClare"
     },
 ]
