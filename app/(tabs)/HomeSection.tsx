@@ -83,11 +83,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: '5%',
-        paddingVertical: '10%',
+        paddingVertical: '5%',
     },
 
     IntroContainer: {
-        marginTop: 0,
         justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap',
