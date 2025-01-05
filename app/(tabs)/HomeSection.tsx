@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, Dimensions, StyleSheet, TouchableOpacity, Linking, Platform} from 'react-native';
+import { View, Image, Text, Dimensions, StyleSheet, TouchableOpacity, Linking} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function HomeSection() {
@@ -36,7 +36,7 @@ export default function HomeSection() {
             {/* Intro Content */}
             <View style={[
                 styles.IntroContainer,
-                Platform.OS === 'web'
+                width > 1000
                 ? { flexDirection: 'row' } 
                 : { flexDirection: 'column' }
             ]}>
@@ -45,7 +45,7 @@ export default function HomeSection() {
                     source={require('@/assets/images/IntroPic.png')}
                     style={[
                         styles.IntroPic,
-                        Platform.OS === 'web'
+                        width > 1000
                             ? { width: getScaledSize(500), height: getScaledSize(500) } // Dynamic sizing for web
                             : { width: 300, height: 300 } // Fixed sizing for iOS/Android
                     ]}
