@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     },
 
     IntroContainer: {
-        marginTop: 50,
+        marginTop: 0,
         justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap',
