@@ -60,7 +60,9 @@ export default function HomeSection() {
                         <Text style = {[styles.Subtitle, {fontSize: getFontSize(23)}]}>I'm a Year 2 Business Analytics undergraduate at the National University of Singapore. I'm a passionate learner with a strong interest in user interface design and app development. I'm always eager to explore new technologies, collaborate with others and contribute to impactful projects that enhance user experiences.</Text>
                     </View>
 
-                    <View style={styles.ButtonContainer}>
+                    <View style={[
+                        styles.ButtonContainer,
+                        ]}>
                         <TouchableOpacity style={styles.Button} onPress={() => handlePress('mailto:clarequek@hotmail.com?subject=Hello&body=I%20wanted%20to%20reach%20out')}>
                             <Ionicons name="mail" size={getScaledSize(50)} color='#fff' />
                         </TouchableOpacity>
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
     IntroContent: {
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'center',
     },
 
     IntroPic: {
@@ -115,6 +118,9 @@ const styles = StyleSheet.create({
     ButtonContainer: {
         flexDirection: 'row', 
         marginTop: '5%',
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     Button: {

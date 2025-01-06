@@ -54,7 +54,7 @@ const Project : React.FC<ProjectProps> = ({ project }) => {
                     {                     
                         transform: [{ scale: scaleValue }],
                     },
-                    { width: getScaledSize(350), height: getScaledSize(750)}
+                    { width: getScaledSize(350), height: getScaledSize(800)}
                 ]}
             >
                 
