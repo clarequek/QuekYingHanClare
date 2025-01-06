@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import { View, StyleSheet, Text, TouchableOpacity, Dimensions, Modal } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const LedgerButton = ({ handleScrollTo }) => {
+interface LedgerButtonProps { 
+  handleScrollTo: (section: string) => void; 
+}
+
+const LedgerButton: React.FC<LedgerButtonProps> = ({ handleScrollTo }) => {
   const { width } = Dimensions.get('window');
   const [modalVisible, setModalVisible] = useState(false);
 

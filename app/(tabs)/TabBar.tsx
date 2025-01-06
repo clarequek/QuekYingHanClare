@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import { View, StyleSheet, Text, TouchableOpacity, Dimensions, Modal } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+interface TabBarProps { 
+  handleScrollTo: (section: string) => void; 
+}
 
-const TabBar= ({ handleScrollTo }) => {
+const TabBar: React.FC<TabBarProps> = ({ handleScrollTo }) => {
     const { width } = Dimensions.get('window');
   
     const getFontSize = (baseSize : number) : number => {
