@@ -53,11 +53,11 @@ export default function HomeSection() {
                 <View style= {styles.IntroContent}>
                     {/* Header */}
                     <View style={styles.HeaderContainer}>
-                        <Text style={[styles.SubHeader, {fontSize: getFontSize(40)}]}>Hi, I'm</Text>
-                        <Text style={[styles.Header, {fontSize: getFontSize(170)}]}>Clare.</Text>
+                        <Text style={[styles.SubHeader, {fontSize: getFontSize(35)}]}>Hi, I'm</Text>
+                        <Text style={[styles.Header, {fontSize: getFontSize(150)}]}>Clare.</Text>
                     </View>
                     <View style={styles.IntroText}> 
-                        <Text style = {[styles.Subtitle, {fontSize: getFontSize(25)}]}>I'm a Year 2 Business Analytics undergraduate at the National University of Singapore. I'm a passionate learner with a strong interest in user interface design and app development. I'm always eager to explore new technologies, collaborate with others and contribute to impactful projects that enhance user experiences.</Text>
+                        <Text style = {[styles.Subtitle, {fontSize: getFontSize(23)}]}>I'm a Year 2 Business Analytics undergraduate at the National University of Singapore. I'm a passionate learner with a strong interest in user interface design and app development. I'm always eager to explore new technologies, collaborate with others and contribute to impactful projects that enhance user experiences.</Text>
                     </View>
 
                     <View style={styles.ButtonContainer}>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: '5%',
-        paddingVertical: '0%',
+        marginBottom: 50,
     },
 
     IntroContainer: {
