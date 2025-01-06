@@ -8,7 +8,7 @@ export default function HomeSection() {
     const getFontSize = (baseSize : number) : number => {
       if (width < 1000) {
         // Computer screen, smaller font
-        return baseSize * 0.7;
+        return baseSize * 0.8;
       } else {
         // Phone screen, larger font
         return baseSize;
@@ -16,7 +16,7 @@ export default function HomeSection() {
     };
 
     const getScaledSize = (baseSize : number) => { 
-        return width < 1000 ? baseSize * 0.7 : baseSize;
+        return width < 1000 ? baseSize * 0.8 : baseSize;
     };
 
     const handlePress = (url: string) => {
@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: '5%',
-        marginBottom: 50,
+        paddingVertical: '10%',
+        marginBottom: 70,
     },
 
     IntroContainer: {

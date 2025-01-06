@@ -54,7 +54,7 @@ const Project : React.FC<ProjectProps> = ({ project }) => {
                     {                     
                         transform: [{ scale: scaleValue }],
                     },
-                    { width: getScaledSize(450), height: getScaledSize(850)}
+                    { width: getScaledSize(350), height: getScaledSize(750)}
                 ]}
             >
                 
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
         height: 40,
         marginTop: 10,
         width: '75%',
-        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
