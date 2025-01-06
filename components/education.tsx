@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Image, Text, Dimensions, StyleSheet, Animated} from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, Image, Text, Dimensions, StyleSheet, Animated, TouchableWithoutFeedback} from 'react-native';
 
 interface EducationProps { education: { 
     id: number; 
@@ -22,37 +22,53 @@ const Education : React.FC<EducationProps> = ({ education }) => {
     };
 
     const [isHovered, setIsHovered] = useState(false);
-    const scaleValue = isHovered ? 1.08 : 1;
+    const scaleValue = useRef(new Animated.Value(1)).current;
 
-    return (  
-        <Animated.View
-                style={[
-                    styles.Education,
-                    {
-                        transform: [{ scale: scaleValue }],
-                    },
-                    {width: '90%'}
-                ]}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-        >
-            <View>
-                {/* Degree */}
-                <Text style={[styles.Header, { fontSize: getFontSize(30) }]}>{ education.degree }</Text>
+    const handlePressIn = () => {
+        Animated.timing(scaleValue, {
+            toValue: 1.08,
+            duration: 150,
+            useNativeDriver: true,
+        }).start();
+    };
 
-                {/* Institute */}
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(28), marginBottom: 5 }]}>{ education.institute }</Text>
+    const handlePressOut = () => {
+        Animated.timing(scaleValue, {
+            toValue: 1,
+            duration: 150,
+            useNativeDriver: true,
+        }).start();
+    };
 
-                {/* Period */}
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{ education.period }</Text>
+    return (
+        <TouchableWithoutFeedback onPressIn={handlePressIn} onPressOut={handlePressOut}>
+            <Animated.View
+                    style={[
+                        styles.Education,
+                        {
+                            transform: [{ scale: scaleValue }],
+                        },
+                        {width: '90%'}
+                    ]}
+            >
+                <View>
+                    {/* Degree */}
+                    <Text style={[styles.Header, { fontSize: getFontSize(30) }]}>{ education.degree }</Text>
 
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}> </Text>
-                        
-                {/* Activities */}
-                <Text style={[styles.Header, { fontSize: getFontSize(24), marginBottom: 5 }]}> Activities and Societies: </Text>
-                {education.activities.map((activity, index) => ( <Text key={index} style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansLight' }]}>• { activity }</Text> ))}
-            </View>   
-        </Animated.View>         
+                    {/* Institute */}
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(28), marginBottom: 5 }]}>{ education.institute }</Text>
+
+                    {/* Period */}
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{ education.period }</Text>
+
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}> </Text>
+                            
+                    {/* Activities */}
+                    <Text style={[styles.Header, { fontSize: getFontSize(24), marginBottom: 5 }]}> Activities and Societies: </Text>
+                    {education.activities.map((activity, index) => ( <Text key={index} style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansLight' }]}>• { activity }</Text> ))}
+                </View>   
+            </Animated.View> 
+        </TouchableWithoutFeedback>        
     );
 }
 

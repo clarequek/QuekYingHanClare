@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Image, Text, Dimensions, StyleSheet, Animated} from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, Image, Text, Dimensions, StyleSheet, Animated, TouchableWithoutFeedback} from 'react-native';
 import Skill from './skill';
 
 interface ExperienceProps { experience: { 
@@ -23,44 +23,60 @@ const Experience : React.FC<ExperienceProps> = ({ experience }) => {
     };
 
     const [isHovered, setIsHovered] = useState(false);
-    const scaleValue = isHovered ? 1.08 : 1;
+    const scaleValue = useRef(new Animated.Value(1)).current;
+
+    const handlePressIn = () => {
+        Animated.timing(scaleValue, {
+            toValue: 1.08,
+            duration: 150,
+            useNativeDriver: true,
+        }).start();
+    };
+
+    const handlePressOut = () => {
+        Animated.timing(scaleValue, {
+            toValue: 1,
+            duration: 150,
+            useNativeDriver: true,
+        }).start();
+    };
 
     return (
-        <Animated.View
-                style={[
-                    styles.Job,
-                    {  
-                        transform: [{ scale: scaleValue }],
-                    },
-                    { width: '90%'}
-                ]}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-        >
-            <View>
-                {/* Job Title */}
-                <Text style={[styles.JobName, { fontSize: getFontSize(30) }]}>{experience.jobTitle}</Text>
+        <TouchableWithoutFeedback onPressIn={handlePressIn} onPressOut={handlePressOut}>
+            <Animated.View
+                    style={[
+                        styles.Job,
+                        {  
+                            transform: [{ scale: scaleValue }],
+                        },
+                        { width: '90%'}
+                    ]}
+            >
+                <View>
+                    {/* Job Title */}
+                    <Text style={[styles.JobName, { fontSize: getFontSize(30) }]}>{experience.jobTitle}</Text>
 
-                {/* Company */}
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(28), marginBottom: 5 }]}>{experience.company}</Text>
+                    {/* Company */}
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(28), marginBottom: 5 }]}>{experience.company}</Text>
 
-                {/* Period */}
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{experience.period}</Text>
+                    {/* Period */}
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{experience.period}</Text>
 
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(10), marginBottom: 5 }]}> </Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(10), marginBottom: 5 }]}> </Text>
 
-                {/* Job Description */}
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(22), marginBottom: 5, fontFamily: 'DMSansLight' }]}>{experience.jobDesc}</Text>
+                    {/* Job Description */}
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(22), marginBottom: 5, fontFamily: 'DMSansLight' }]}>{experience.jobDesc}</Text>
 
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(10), marginBottom: 5 }]}> </Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(10), marginBottom: 5 }]}> </Text>
 
-                {/* Skills */}
-                <View style={styles.SkillsContainer}>
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>Skills: </Text>
-                    {experience.skills.map(skill => ( <Skill key={skill}>{skill}</Skill> ))}
+                    {/* Skills */}
+                    <View style={styles.SkillsContainer}>
+                        <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>Skills: </Text>
+                        {experience.skills.map(skill => ( <Skill key={skill}>{skill}</Skill> ))}
+                    </View>
                 </View>
-            </View>
-        </Animated.View>
+            </Animated.View>
+        </TouchableWithoutFeedback>
     );
 }
 

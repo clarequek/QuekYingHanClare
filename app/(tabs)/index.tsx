@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, Image, StyleSheet, ScrollView, Dimensions, LayoutChangeEvent } from 'react-native';
 import TabBar from '../(tabs)/TabBar';
 import LedgerButton from '../(tabs)/LedgerButton';
 import HomeSection from '../(tabs)/HomeSection';
@@ -11,10 +11,10 @@ import SkillsSection from '../(tabs)/SkillsSection';
 export default function MainScreen() {
   const { width } = Dimensions.get('window');
 
-  const scrollViewRef = useRef(null);
-  const [sectionPositions, setSectionPositions] = useState({});
+  const scrollViewRef = useRef<ScrollView>(null);
+  const [sectionPositions, setSectionPositions] = useState<Record<string, number>>({});
 
-  const onSectionLayout = (sectionName) => (event) => {
+  const onSectionLayout = (sectionName: string) => (event:LayoutChangeEvent) => {
     const { y } = event.nativeEvent.layout;
     setSectionPositions((prevPositions) => ({
       ...prevPositions,
@@ -22,7 +22,7 @@ export default function MainScreen() {
     }));
   };
 
-  const handleScrollTo = (sectionName) => {
+  const handleScrollTo = (sectionName: string) => {
     const yOffset = sectionPositions[sectionName] || 0;
     scrollViewRef.current?.scrollTo({ y: yOffset, animated: true });
   };

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Image, Text, Dimensions, StyleSheet, TouchableOpacity, Linking, Animated} from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, Image, Text, Dimensions, StyleSheet, TouchableOpacity, Linking, Animated, TouchableWithoutFeedback} from 'react-native';
 import Skill from './skill';
 
 interface ProjectProps { project: { 
@@ -28,54 +28,71 @@ const Project : React.FC<ProjectProps> = ({ project }) => {
     };
 
     const [isHovered, setIsHovered] = useState(false);
-    const scaleValue = isHovered ? 1.08 : 1;
+    const scaleValue = useRef(new Animated.Value(1)).current;
+
+    const handlePressIn = () => {
+        Animated.timing(scaleValue, {
+            toValue: 1.08,
+            duration: 150,
+            useNativeDriver: true,
+        }).start();
+    };
+
+    const handlePressOut = () => {
+        Animated.timing(scaleValue, {
+            toValue: 1,
+            duration: 150,
+            useNativeDriver: true,
+        }).start();
+    };
 
     return (
-        <Animated.View
-            style={[
-                styles.Project,
-                {                     
-                    transform: [{ scale: scaleValue }],
-                },
-                { width: getScaledSize(450), height: getScaledSize(850)}
-            ]}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            
-            {/* Project Image */ }
-            <Image
-                source={typeof project.image === 'string' ? { uri: project.image } : project.image}
-                style={[{ 
-                    width: getScaledSize(250), 
-                    height: getScaledSize(250), 
-                }]}
-            />
+        <TouchableWithoutFeedback onPressIn={handlePressIn} onPressOut={handlePressOut}>
+            <Animated.View
+                style={[
+                    styles.Project,
+                    {                     
+                        transform: [{ scale: scaleValue }],
+                    },
+                    { width: getScaledSize(450), height: getScaledSize(850)}
+                ]}
+            >
+                
+                {/* Project Image */ }
+                <Image
+                    source={typeof project.image === 'string' ? { uri: project.image } : project.image}
+                    style={[{ 
+                        width: getScaledSize(250), 
+                        height: getScaledSize(250), 
+                    }]}
+                />
 
-            {/* Project Name */}
-            <Text style={[styles.ProjectName, { fontSize: getFontSize(30) }]}>{project.name}</Text>
+                {/* Project Name */}
+                <Text style={[styles.ProjectName, { fontSize: getFontSize(30) }]}>{project.name}</Text>
 
-            {/* Short Description */}
-            <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>{project.description}</Text>
-            <Text style={[styles.Subtitle, { fontSize: getFontSize(2), marginBottom: 5 }]}> </Text>
+                {/* Short Description */}
+                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>{project.description}</Text>
+                <Text style={[styles.Subtitle, { fontSize: getFontSize(2), marginBottom: 5 }]}> </Text>
 
-            {/* Skills */}
-            <View style={styles.SkillsContainer}>
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSans' }]}>Skills: </Text>
-                {project.skills.map(skill => ( <Skill key={skill}>{skill}</Skill> ))}
-            </View>
+                {/* Skills */}
+                <View style={styles.SkillsContainer}>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSans' }]}>Skills: </Text>
+                    {project.skills.map(skill => ( <Skill key={skill}>{skill}</Skill> ))}
+                </View>
 
-            {/* Buttons */}
-            {/* Video Demonstration Button */}
-            <TouchableOpacity style={styles.Button} onPress={() => {handlePress(project.videoDemoUrl)}}>
-                <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>VIDEO DEMONSTRATION</Text>
-            </TouchableOpacity>
+                {/* Buttons */}
+                {/* Video Demonstration Button */}
+                <TouchableOpacity style={styles.Button} onPress={() => {handlePress(project.videoDemoUrl)}}>
+                    <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>VIDEO DEMONSTRATION</Text>
+                </TouchableOpacity>
 
-            {/* Github Repo Button */}
-            <TouchableOpacity style={styles.Button} onPress={() => {handlePress(project.githubRepoUrl)}}>
-                <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>GITHUB REPOSITORY</Text>
-            </TouchableOpacity>  
-        </Animated.View> 
+                {/* Github Repo Button */}
+                <TouchableOpacity style={styles.Button} onPress={() => {handlePress(project.githubRepoUrl)}}>
+                    <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>GITHUB REPOSITORY</Text>
+                </TouchableOpacity>  
+                
+            </Animated.View> 
+        </TouchableWithoutFeedback>
 
     );
 }
