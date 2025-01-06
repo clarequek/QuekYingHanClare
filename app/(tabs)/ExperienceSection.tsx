@@ -23,7 +23,7 @@ export default function ExperienceSection() {
     return (
         <View style={styles.ExperienceSection}>
             {/* Header */}
-            <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Experience</Text>
+            <Text style={[styles.Header, {fontSize: getFontSize(80)}]}>Experience</Text>
 
             {/* Experiences */}
             <View style={styles.ExperienceContainer}>

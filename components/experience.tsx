@@ -54,24 +54,24 @@ const Experience : React.FC<ExperienceProps> = ({ experience }) => {
             >
                 <View>
                     {/* Job Title */}
-                    <Text style={[styles.JobName, { fontSize: getFontSize(30) }]}>{experience.jobTitle}</Text>
+                    <Text style={[styles.JobName, { fontSize: getFontSize(26) }]}>{experience.jobTitle}</Text>
 
                     {/* Company */}
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(28), marginBottom: 5 }]}>{experience.company}</Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5 }]}>{experience.company}</Text>
 
                     {/* Period */}
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{experience.period}</Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{experience.period}</Text>
 
                     <Text style={[styles.Subtitle, { fontSize: getFontSize(10), marginBottom: 5 }]}> </Text>
 
                     {/* Job Description */}
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(22), marginBottom: 5, fontFamily: 'DMSansLight' }]}>{experience.jobDesc}</Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansLight' }]}>{experience.jobDesc}</Text>
 
                     <Text style={[styles.Subtitle, { fontSize: getFontSize(10), marginBottom: 5 }]}> </Text>
 
                     {/* Skills */}
                     <View style={styles.SkillsContainer}>
-                        <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>Skills: </Text>
+                        <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansBold' }]}>Skills: </Text>
                         {experience.skills.map(skill => ( <Skill key={skill}>{skill}</Skill> ))}
                     </View>
                 </View>

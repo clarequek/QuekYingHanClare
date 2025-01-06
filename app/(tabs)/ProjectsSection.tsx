@@ -23,7 +23,7 @@ export default function ProjectsSection() {
     return (
         <View style={styles.ProjectsSection}>
             {/* Header */}
-            <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Projects</Text>
+            <Text style={[styles.Header, {fontSize: getFontSize(80)}]}>Projects</Text>
 
             {/* Projects */}
             <View style={styles.ProjectsContainer}>

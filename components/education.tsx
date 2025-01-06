@@ -53,18 +53,18 @@ const Education : React.FC<EducationProps> = ({ education }) => {
             >
                 <View>
                     {/* Degree */}
-                    <Text style={[styles.Header, { fontSize: getFontSize(30) }]}>{ education.degree }</Text>
+                    <Text style={[styles.Header, { fontSize: getFontSize(26) }]}>{ education.degree }</Text>
 
                     {/* Institute */}
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(28), marginBottom: 5 }]}>{ education.institute }</Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5 }]}>{ education.institute }</Text>
 
                     {/* Period */}
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{ education.period }</Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansItalic' }]}>{ education.period }</Text>
 
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}> </Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5 }]}> </Text>
                             
                     {/* Activities */}
-                    <Text style={[styles.Header, { fontSize: getFontSize(24), marginBottom: 5 }]}> Activities and Societies: </Text>
+                    <Text style={[styles.Header, { fontSize: getFontSize(23), marginBottom: 5 }]}> Activities and Societies: </Text>
                     {education.activities.map((activity, index) => ( <Text key={index} style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansLight' }]}>• { activity }</Text> ))}
                 </View>   
             </Animated.View> 

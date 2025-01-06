@@ -20,11 +20,11 @@ export default function SkillsSection() {
             
             <View style={styles.Container}>
                 {/* Header */}
-                <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Skills</Text>
+                <Text style={[styles.Header, {fontSize: getFontSize(80)}]}>Skills</Text>
                 {/* Skills */}
                 {skillsData.map((skill) => (
                     <View key={skill.id} style={styles.SkillsContainer}>
-                        <Text style={[styles.Subtitle, { fontSize: getFontSize(25) }]}>{skill.id}: </Text>
+                        <Text style={[styles.Subtitle, { fontSize: getFontSize(20), fontFamily: 'DMSansBold' }]}>{skill.id}: </Text>
                         {skill.skills.map((skillItem) => (
                             <Skill key={skillItem}>{skillItem}</Skill>
                         ))}

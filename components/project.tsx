@@ -68,27 +68,27 @@ const Project : React.FC<ProjectProps> = ({ project }) => {
                 />
 
                 {/* Project Name */}
-                <Text style={[styles.ProjectName, { fontSize: getFontSize(30) }]}>{project.name}</Text>
+                <Text style={[styles.ProjectName, { fontSize: getFontSize(26) }]}>{project.name}</Text>
 
                 {/* Short Description */}
-                <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5 }]}>{project.description}</Text>
+                <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5 }]}>{project.description}</Text>
                 <Text style={[styles.Subtitle, { fontSize: getFontSize(2), marginBottom: 5 }]}> </Text>
 
                 {/* Skills */}
                 <View style={styles.SkillsContainer}>
-                    <Text style={[styles.Subtitle, { fontSize: getFontSize(24), marginBottom: 5, fontFamily: 'DMSans' }]}>Skills: </Text>
+                    <Text style={[styles.Subtitle, { fontSize: getFontSize(20), marginBottom: 5, fontFamily: 'DMSansBold' }]}>Skills: </Text>
                     {project.skills.map(skill => ( <Skill key={skill}>{skill}</Skill> ))}
                 </View>
 
                 {/* Buttons */}
                 {/* Video Demonstration Button */}
                 <TouchableOpacity style={styles.Button} onPress={() => {handlePress(project.videoDemoUrl)}}>
-                    <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>VIDEO DEMONSTRATION</Text>
+                    <Text style={[styles.ButtonText, {fontSize: getFontSize(20)}]}>VIDEO DEMONSTRATION</Text>
                 </TouchableOpacity>
 
                 {/* Github Repo Button */}
                 <TouchableOpacity style={styles.Button} onPress={() => {handlePress(project.githubRepoUrl)}}>
-                    <Text style={[styles.ButtonText, {fontSize: getFontSize(24)}]}>GITHUB REPOSITORY</Text>
+                    <Text style={[styles.ButtonText, {fontSize: getFontSize(20)}]}>GITHUB REPOSITORY</Text>
                 </TouchableOpacity>  
                 
             </Animated.View> 
@@ -131,9 +131,9 @@ const styles = StyleSheet.create({
     },
 
     Button: {
-        height: 45,
+        height: 40,
         marginTop: 10,
-        width: '95%',
+        width: '75%',
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
         borderRadius: 20,
         alignItems: 'center',

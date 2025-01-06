@@ -24,7 +24,7 @@ export default function EducationSection() {
         <View style={styles.EducationSection}>
           {/* Header */}
           {/* Header */}
-          <Text style={[styles.Header, {fontSize: getFontSize(120)}]}>Education</Text>
+          <Text style={[styles.Header, {fontSize: getFontSize(80)}]}>Education</Text>
 
           {/* Education */}
           <View style={styles.EducationContainer}>

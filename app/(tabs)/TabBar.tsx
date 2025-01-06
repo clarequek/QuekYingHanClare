@@ -22,19 +22,19 @@ const TabBar: React.FC<TabBarProps> = ({ handleScrollTo }) => {
     return (
         <View style={styles.TabBar}>
           <TouchableOpacity onPress={() => handleScrollTo('home')}>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>HOME</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(15) }]}>HOME</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleScrollTo('experience')}>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>EXPERIENCE</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(15) }]}>EXPERIENCE</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleScrollTo('projects')}>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>PROJECTS</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(15) }]}>PROJECTS</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleScrollTo('education')}>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>EDUCATION</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(15) }]}>EDUCATION</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleScrollTo('skills')}>
-            <Text style={[styles.TabBarText, { fontSize: getFontSize(17) }]}>SKILLS</Text>
+            <Text style={[styles.TabBarText, { fontSize: getFontSize(15) }]}>SKILLS</Text>
           </TouchableOpacity>
         </View>
     );

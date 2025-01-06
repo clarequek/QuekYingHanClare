@@ -13,7 +13,7 @@ const Skill = ({ children } : SkillProps) => {
 
   return (
     <View style={styles.Skill}>
-      <Text style={[styles.SkillText, { fontSize: getFontSize(24) }]}>{children}</Text>
+      <Text style={[styles.SkillText, { fontSize: getFontSize(20) }]}>{children}</Text>
     </View>
   );
 };
