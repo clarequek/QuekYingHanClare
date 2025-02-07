@@ -17,6 +17,15 @@ const projectsData = [
         "videoDemoUrl": "https://drive.google.com/file/d/1ZeX7RMUFe_Oy-PVoR1g0lt3HfWeEU8wM/view?usp=sharing",
         "githubRepoUrl": "https://github.com/clarequek/QuekYingHanClare"
     },
+    {
+        "id": 3,
+        "name": "Zweckers ER Diagram Generator",
+        "description": "An application aimed to accelerate the analysis of relationships of any data with an interactive ER diagram",
+        "image": require('@/assets/images/Zweckers.png'),
+        "skills": ["React.js", "Python (Flask/FastAPI)", "GroqAI", "Git", "Firebase (Firestore)"],
+        "videoDemoUrl": "https://www.youtube.com/watch?v=nBZCBYGB-m8&t=3s",
+        "githubRepoUrl": "https://github.com/clarequek/zweckers"
+    },
 ]
 
 export default projectsData;
