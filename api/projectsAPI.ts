@@ -26,6 +26,15 @@ const projectsData = [
         "videoDemoUrl": "https://www.youtube.com/watch?v=nBZCBYGB-m8&t=3s",
         "githubRepoUrl": "https://github.com/clarequek/zweckers"
     },
+    {
+        "id": 4,
+        "name": "Pawfect Home",
+        "description": "A web application that connects pet adopters with pet listers, allowing users to list and adopt pets.",
+        "image": require('@/assets/images/PawfectHome.png'),
+        "skills": ["Git", "Firebase (Firestore)", "HTML", "CSS", "JavaScript", "User Interface Design", "SOLID Design Principles", "AGILE Sprints"],
+        "videoDemoUrl": "https://www.youtube.com/watch?v=zeEVV0LPZPM",
+        "githubRepoUrl": "https://github.com/BT3103AppDev1/l1-finaltermproject-2425s2l1_group_23"
+    },
 ]
 
 export default projectsData;
