@@ -1,32 +1,27 @@
 const skillsData = [ 
     {
-        "id": "Languages",
-        "skills": ["Java", "Python", "R",  "SQL",]
-    },
-
-    {
-        "id": "Frameworks & Libraries",
-        "skills": ["React.js,", "React Native",]
+        "id": "Programming Languages",
+        "skills": ["Java", "JavaScript","Python", "R",  "SQL",]
     },
 
     {
         "id": "Data Tools & Analytics",
-        "skills": ["Tableau Desktop", "R Markdown", "Data Visualisation", "Data Exploration",]
+        "skills": ["Tableau Desktop", "R Markdown", "Data Visualisation", "Exploratory Data Analysis", "Regression Modelling (Linear, Cluster, PCA)", "Stepwise Regression", "Mode Analytics"]
     },
 
     {
-        "id": "Backend & Cloud Technologies",
-        "skills": ["Firebase", "Cloud Firestore",]
+        "id": "Industry Knowledge",
+        "skills": ["User Interface Design,", "SOLID Design Principles", "Customer Service", "Cross-Functional Collaboration", "Metrics Tracking (e.g., Retention, Engagement)", "User Research & Interviews", "Agile & Sprint Planning", "Backlog Management"]
     },
 
     {
-        "id": "Version Control & Collaboration",
-        "skills": ["Git",]
+        "id": "Technical Tools & Frameworks",
+        "skills": ["React.js", "React Native", "Firebase", "Git", "GitHub"]
     },
 
     {
-        "id": "Others",
-        "skills": ["Canva",]
+        "id": "Design",
+        "skills": ["Canva", "Figma", "Prototyping"]
     },
 ]
 
